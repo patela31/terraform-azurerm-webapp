@@ -1,33 +1,26 @@
-# terraform-azurerm-webapp
-Terraform module for provision Azure Service plan, App service (web app) and Application Insight inside an existing Resource Group.
+## Requirements
 
+No requirements.
 
-## Usage
+## Providers
 
-```
-terraform {
-  required_version = ">= 1.0
-}
+| Name | Version |
+|------|---------|
+| azurerm | n/a |
 
-provider "azurerm" {
-  features {}
-}
+## Inputs
 
-resource "azurerm_resource_group" "rg-app" {
-  name     = "RG_MyAPP_Demo"
-  location = "West Europe"
-}
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| app\_name | Name of application | `any` | n/a | yes |
+| location | Location of Azure resource | `string` | `"West Europe"` | no |
+| resource\_group\_name | Resource group name | `any` | n/a | yes |
+| service\_plan\_name | Service plan name | `any` | n/a | yes |
 
-module "webapp" {
-  source               = "<source>"
-  service_plan_name    = "serviceplandemo"
-  app_name             = "webappdemomodule"
-  location             = azurerm_resource_group.rg-app.location
-  resource_group_name = azurerm_resource_group.rg-app.name
-}
+## Outputs
 
-output "webapp_url" {
-  value = module.webapp.webapp_url
-}
+| Name | Description |
+|------|-------------|
+| webapp\_id | n/a |
+| webapp\_url | n/a |
 
-```

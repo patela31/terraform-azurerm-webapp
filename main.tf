@@ -1,11 +1,9 @@
-
-
 resource "azurerm_app_service_plan" "plan-app" {
   name                = var.service_plan_name
   location            = var.location
   resource_group_name = var.resource_group_name
   sku {
-    tier = var.sp_sku
+    tier = "Standard"
     size = "S1"
   }
 }
@@ -17,9 +15,6 @@ resource "azurerm_app_service" "app" {
   app_service_plan_id = azurerm_app_service_plan.plan-app.id
   app_settings = {
     "INSTRUMENTATIONKEY" = azurerm_application_insights.appinsight-app.instrumentation_key
-  }
-  site_config {
-     ftps_state = var.ftps_state
   }
 }
 

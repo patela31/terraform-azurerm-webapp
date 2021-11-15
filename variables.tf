@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  description = "Resource groupe name"
+  description = "Resource group name"
 }
 
 variable "location" {
@@ -15,11 +15,3 @@ variable "app_name" {
   description = "Name of application"
 }
 
-variable "sp_sku"{
-  description = "Service plan sku"
-  default = "Standard"
-}
-
-variable "ftps_state" {
-  default = "AllAllowed"
-}
