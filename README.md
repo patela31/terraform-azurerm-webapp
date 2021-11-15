@@ -23,7 +23,7 @@ module "webapp" {
   service_plan_name    = "serviceplandemo"
   app_name             = "webappdemomodule"
   location             = azurerm_resource_group.rg-app.location
-  resource_groupe_name = azurerm_resource_group.rg-app.name
+  resource_group_name = azurerm_resource_group.rg-app.name
 }
 
 output "webapp_url" {
